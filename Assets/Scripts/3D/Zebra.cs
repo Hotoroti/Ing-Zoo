@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Zebra : MonoBehaviour
+namespace Zoo3D
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Zebra : Animal
     {
-        
-    }
+        [SerializeField] private TextMeshProUGUI _text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void SayHello()
+        {
+            base.SayHello();
+            _text.text = "Ola Ola";
+        }
+
+        public override void EatLeave()
+        {
+            base.EatLeave();
+            _text.text = "munch munch zank yee bra";
+        }
     }
 }

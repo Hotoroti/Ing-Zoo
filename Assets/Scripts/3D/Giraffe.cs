@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Giraffe : MonoBehaviour
+namespace Zoo3D
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Giraffe : Animal
     {
-        
-    }
+        [SerializeField] private TextMeshProUGUI _text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void SayHello()
+        {
+            base.SayHello();
+            _text.text = "Hi Hi";
+        }
+
+        public override void EatLeave()
+        {
+            base.EatLeave();
+            _text.text = "Delicious Delicious, yum, yum";
+        }
     }
 }

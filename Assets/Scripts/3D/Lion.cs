@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Lion : MonoBehaviour
+namespace Zoo3D
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Lion : Animal
     {
-        
-    }
+        [SerializeField] private TextMeshProUGUI _text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void SayHello()
+        {
+            base.SayHello();
+            _text.text = "Yo yo";
+        }
+
+        public override void EatMeat()
+        {
+            base.EatMeat();
+            _text.text = "nomnomnom thanks mate";
+        }
     }
 }
