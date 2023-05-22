@@ -8,17 +8,12 @@ namespace Zoo3D
         [SerializeField] private float _movementSpeed;
         [SerializeField] private float _rotationSpeed;
 
-        [Header("Keybinds")]
-        [SerializeField] private KeyCode _forwardMovementKey;
-        [SerializeField] private KeyCode _backMovementKey;
-        [SerializeField] private KeyCode _leftMovementKey;
-        [SerializeField] private KeyCode _rightMovementKey;
 
         //Rotation variables
         private float _rotationSpeedH;
         private float _rotationSpeedV;
-        private float _yaw;
-        private float _pitch;
+        private float _yaw = 0.0f;
+        private float _pitch = 0.0f;
 
         //Other
         private Rigidbody _rig;
@@ -50,8 +45,9 @@ namespace Zoo3D
         void GroundCheck()
         {
             RaycastHit _hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out _hit, 1.2f, LayerMask.GetMask("Grounds")))
+            if (Physics.Raycast(transform.position, Vector3.down, out _hit, 1.2f, LayerMask.GetMask("Ground")))
             {
+                Debug.Log("Hit ground");
                 transform.position = new Vector3(transform.position.x, _hit.transform.position.y + 1f, transform.position.x);
                 _rig.useGravity = false;
             }
@@ -61,14 +57,22 @@ namespace Zoo3D
 
         void Movement()
         {
-            if (Input.GetKey(_forwardMovementKey))
+            if (Input.GetKey(KeyCode.W))
+            {
                 transform.position += transform.forward * _movementSpeed * Time.deltaTime;
-            if (Input.GetKey(_backMovementKey))
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
                 transform.position += -transform.forward * _movementSpeed * Time.deltaTime;
-            if (Input.GetKey(_rightMovementKey))
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
                 transform.position += transform.right * _movementSpeed * Time.deltaTime;
-            if (Input.GetKey(_leftMovementKey))
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
                 transform.position += -transform.right * _movementSpeed * Time.deltaTime;
+            }
         }
 
         void Rotation()

@@ -47,9 +47,13 @@ namespace Zoo3D
             foreach (GameObject obj in AllAnimals)
             {
                 if (name == "")
+                {
                     _animalScript.Add(obj.GetComponent<Animal>());
+                }
                 else if (obj.CompareTag(name))
+                {
                     _animalScript.Add(obj.GetComponent<Animal>());
+                }
             }
         }
 

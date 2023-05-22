@@ -72,10 +72,15 @@
     <Compile Include="Assets\Scripts\2D\Zebra.cs" />
     <Compile Include="Assets\Scripts\2D\Tiger.cs" />
     <Compile Include="Assets\Scripts\3D\Lion.cs" />
-    <Compile Include="Assets\Scripts\3D\Pig.cs" />
+    <Compile Include="Assets\Scripts\3D\Boar.cs" />
     <Compile Include="Assets\Scripts\3D\Giraffe.cs" />
     <Compile Include="Assets\Scripts\3D\PlayerController.cs" />
     <Compile Include="Assets\Scripts\3D\Tiger.cs" />
+    <Compile Include="Assets\Realistic\Forest Animals\Fox_Family\Fox_Cub\scripts\Demo_Animator_FoxCub.cs" />
+    <Compile Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Female\scripts\Demo_Animator_Boar_Female.cs" />
+    <Compile Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Cub\scripts\Demo_Animator.cs" />
+    <Compile Include="Assets\Realistic\Forest Animals\Fox_Family\Fox_Male\scripts\Demo_Animator_FoxMale.cs" />
+    <Compile Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Male\scripts\Demo_Animator_Boar_Male.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
@@ -85,21 +90,27 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Female\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Cub\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\FantasyEnvironments\Environments\README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Realistic\Forest Animals\Fox_Family\Fox_Male\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Male\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TerrainSampleAssets\ShaderGraphs\CustomFunctions\CustomLighting.hlsl" />
+    <None Include="Assets\Realistic\Forest Animals\Fox_Family\Fox_Cub\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>

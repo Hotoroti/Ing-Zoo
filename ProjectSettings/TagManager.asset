@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Boar
+  - Fox
+  - Lion
+  - Hippo
+  - Tiger
+  - Zebra
+  - Giraffe
   layers:
   - Default
   - TransparentFX
@@ -11,11 +18,11 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
   - 
-  - 
-  - 
-  - 
-  - 
+  - Omnivore
+  - Carnivore
+  - Herbivore
   - 
   - 
   - 
