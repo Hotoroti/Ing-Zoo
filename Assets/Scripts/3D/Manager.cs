@@ -85,6 +85,7 @@ namespace Zoo3D
         public void AnimalEatLeave()
         {
             GetAnimalOnGroup("Herbivore");
+            GetAnimalOnGroup("Omnivore");
             foreach (Animal script in _animalScript)
                 script.EatLeave();
 
@@ -94,6 +95,7 @@ namespace Zoo3D
         public void AnimalEatMeat()
         {
             GetAnimalOnGroup("Carnivore");
+            GetAnimalOnGroup("Omnivore");
             foreach (Animal script in _animalScript)
                 script.EatMeat();
 

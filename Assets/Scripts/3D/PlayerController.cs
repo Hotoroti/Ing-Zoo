@@ -48,7 +48,8 @@ namespace Zoo3D
 
         private void FixedUpdate()
         {
-            MovePlayer();
+            if (_isGrounded)
+                MovePlayer();
         }
         private void MyInput()
         {
