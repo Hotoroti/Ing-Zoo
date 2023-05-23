@@ -4,82 +4,79 @@ namespace Zoo3D
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("Speed Settings")]
+        [Header("Movement")]
         [SerializeField] private float _movementSpeed;
-        [SerializeField] private float _rotationSpeed;
+
+        [SerializeField] private float _groundDrag;
+
+        [Header("Ground Check")]
+        [SerializeField] private float _playerHeight;
+        [SerializeField] private LayerMask _whatIsGround;
 
 
-        //Rotation variables
-        private float _rotationSpeedH;
-        private float _rotationSpeedV;
-        private float _yaw = 0.0f;
-        private float _pitch = 0.0f;
+        [SerializeField] private Transform _orientation;
 
-        //Other
+        private float _horizontalInput;
+        private float _verticalInput;
+
+        private bool _isGrounded;
+
+        private Vector3 _moveDirection;
+
         private Rigidbody _rig;
-        private Camera _camera;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             _rig = GetComponent<Rigidbody>();
-            _camera = Camera.main;
-
-            //Set rotation values
-            _rotationSpeedH = _rotationSpeed;
-            _rotationSpeedV = _rotationSpeed;
-
-            //Lock cursor to middle of screen
-            Cursor.lockState = CursorLockMode.Locked;
+            _rig.freezeRotation = true;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            transform.forward = _camera.transform.forward;
-            GroundCheck();
-            Movement();
-            Rotation();
-        }
+            //Ground check
+            _isGrounded = Physics.Raycast(transform.position, Vector3.down, _playerHeight / 2 + .2f, _whatIsGround);
 
-        void GroundCheck()
-        {
-            RaycastHit _hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out _hit, 1.2f, LayerMask.GetMask("Ground")))
-            {
-                Debug.Log("Hit ground");
-                transform.position = new Vector3(transform.position.x, _hit.transform.position.y + 1f, transform.position.x);
-                _rig.useGravity = false;
-            }
+            MyInput();
+            SpeedControl();
+
+            //Handle drag
+            if (_isGrounded)
+                _rig.drag = _groundDrag;
             else
-                _rig.useGravity = true;
+                _rig.drag = 0;
         }
 
-        void Movement()
+        private void FixedUpdate()
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.position += transform.forward * _movementSpeed * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.position += -transform.forward * _movementSpeed * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.position += transform.right * _movementSpeed * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.position += -transform.right * _movementSpeed * Time.deltaTime;
-            }
+            MovePlayer();
+        }
+        private void MyInput()
+        {
+            //Get the inputs for movement
+            _horizontalInput = Input.GetAxisRaw("Horizontal");
+            _verticalInput = Input.GetAxisRaw("Vertical");
         }
 
-        void Rotation()
+        private void MovePlayer()
         {
-            _yaw += _rotationSpeedH * Input.GetAxis("Mouse X");
-            _pitch -= _rotationSpeedV * Input.GetAxis("Mouse Y");
-            transform.eulerAngles = new Vector3(_pitch, _yaw, 0);
+            //Calculate movement direction
+            _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
+
+            _rig.AddForce(_moveDirection * _movementSpeed, ForceMode.Force);
+        }
+
+        private void SpeedControl()
+        {
+            Vector3 flatVel = new Vector3(_rig.velocity.x, 0, _rig.velocity.z);
+
+            //Limit velocity if needed
+            if (flatVel.magnitude > _movementSpeed)
+            {
+                //Calculate what max velocity should be
+                Vector3 limitedVel = flatVel.normalized * _movementSpeed;
+                _rig.velocity = new Vector3(limitedVel.x, _rig.velocity.y, limitedVel.z);
+            }
+
         }
     }
 }
