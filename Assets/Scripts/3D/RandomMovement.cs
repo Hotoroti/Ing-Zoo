@@ -6,12 +6,18 @@ namespace Zoo3D
     {
         [SerializeField] private float _movementSpeed;
 
+        private bool _isGrounded;
+
         private Vector3 _tempPos;
         private Vector3 _newPos;
 
+        private Rigidbody _rig;
+        public float MovementSpeed { get => _movementSpeed; set => _movementSpeed = value; }
+        public bool IsGrounded { get => _isGrounded; }
         // Start is called before the first frame update
         void Start()
         {
+            _rig = GetComponent<Rigidbody>();
             GetNewPos();
         }
 
@@ -23,8 +29,23 @@ namespace Zoo3D
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, _newPos, _movementSpeed * Time.deltaTime);
+
                 FaceTarget();
             }
+
+            if (transform.position.y <= 0)
+            {
+                transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                _isGrounded = true;
+                _rig.velocity = Vector3.zero;
+                _rig.useGravity = false;
+            }
+            else
+            {
+                _isGrounded = false;
+                _rig.useGravity = true;
+            }
+
         }
 
         private void FaceTarget()
