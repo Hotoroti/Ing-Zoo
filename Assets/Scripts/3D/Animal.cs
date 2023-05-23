@@ -42,6 +42,11 @@ namespace Zoo3D
                 _randomMovement.MovementSpeed = _randomMovement.StartMovementSpeed;
             }
 
+            if (!IsEating || IsJumping)
+            {
+                _particles[0].Stop();
+                _particles[1].Stop();
+            }
             _randomMovement.Animator.SetBool("IsEating", IsEating);
             _randomMovement.Animator.SetBool("IsJumping", IsJumping);
         }
