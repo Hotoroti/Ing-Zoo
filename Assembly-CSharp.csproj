@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\3D\Fox.cs" />
     <Compile Include="Assets\Scripts\2D\RandomMoverInBounds.cs" />
     <Compile Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Female\scripts\Demo_Animator_Boar_Female.cs" />
+    <Compile Include="Assets\Scripts\3D\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\2D\Debugger.cs" />
     <Compile Include="Assets\Scripts\3D\Zebra.cs" />
     <Compile Include="Assets\Realistic\Forest Animals\Fox_Family\Fox_Male\scripts\Demo_Animator_FoxMale.cs" />
@@ -76,13 +77,13 @@
     <Compile Include="Assets\Scripts\2D\Zebra.cs" />
     <Compile Include="Assets\Realistic\Forest Animals\Boar_Family\Boar_Cub\scripts\Demo_Animator.cs" />
     <Compile Include="Assets\Scripts\2D\Tiger.cs" />
+    <Compile Include="Assets\Scripts\3D\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\3D\Lion.cs" />
     <Compile Include="Assets\Scripts\3D\Boar.cs" />
     <Compile Include="Assets\Scripts\3D\Giraffe.cs" />
     <Compile Include="Assets\Scripts\3D\PlayerController.cs" />
     <Compile Include="Assets\Scripts\3D\Tiger.cs" />
-    <Compile Include="Assets\Scripts\3D\PlayerCam.cs" />
-    <Compile Include="Assets\Scripts\3D\MoveCamera.cs" />
+    <Compile Include="Assets\Scripts\3D\AnimationEventTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />

@@ -16,6 +16,10 @@ namespace Zoo3D
         private RandomMovement _randomMovement;
         private Rigidbody _rig;
 
+        [HideInInspector]
+        public bool IsJumping = false;
+        public bool IsEating = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -27,6 +31,20 @@ namespace Zoo3D
             _particles = GetComponentsInChildren<ParticleSystem>();
         }
 
+        private void Update()
+        {
+            if (IsEating || IsJumping)
+            {
+                _randomMovement.MovementSpeed = 0;
+            }
+            else if (!IsEating && !IsJumping)
+            {
+                _randomMovement.MovementSpeed = _randomMovement.StartMovementSpeed;
+            }
+
+            _randomMovement.Animator.SetBool("IsEating", IsEating);
+            _randomMovement.Animator.SetBool("IsJumping", IsJumping);
+        }
         public virtual void SayHello()
         {
             _balloon.SetActive(true);
@@ -35,14 +53,14 @@ namespace Zoo3D
         public virtual void EatMeat()
         {
             _balloon.SetActive(true);
-            StartCoroutine(Eat());
+            IsEating = true;
             _particles[1].Play();
         }
 
         public virtual void EatLeave()
         {
             _balloon.SetActive(true);
-            StartCoroutine(Eat());
+            IsEating = true;
             _particles[0].Play();
         }
 
@@ -52,22 +70,6 @@ namespace Zoo3D
                 StartCoroutine(Trick());
         }
 
-        IEnumerator Eat()
-        {
-            float oldspeed = _randomMovement.MovementSpeed;
-            _randomMovement.MovementSpeed = 0;
-
-            for (int i = 0; i < 3; i++)
-            {
-
-                Debug.Log(gameObject.name + _particles.Length);
-                _rig.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-
-                yield return new WaitForSeconds(4 / 2f);
-            }
-
-            _randomMovement.MovementSpeed = oldspeed;
-        }
         IEnumerator Trick()
         {
             for (int i = 0; i < 360; i++)

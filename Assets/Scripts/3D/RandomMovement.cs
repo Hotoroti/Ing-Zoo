@@ -5,7 +5,6 @@ namespace Zoo3D
     public class RandomMovement : MonoBehaviour
     {
         [SerializeField] private float _movementSpeed;
-
         private bool _isGrounded;
 
         private Vector3 _tempPos;
@@ -13,10 +12,14 @@ namespace Zoo3D
 
         private Rigidbody _rig;
         public float MovementSpeed { get => _movementSpeed; set => _movementSpeed = value; }
+        public float StartMovementSpeed;
         public bool IsGrounded { get => _isGrounded; }
+
+        public Animator Animator;
         // Start is called before the first frame update
         void Start()
         {
+            StartMovementSpeed = _movementSpeed;
             _rig = GetComponent<Rigidbody>();
             GetNewPos();
         }
@@ -24,6 +27,7 @@ namespace Zoo3D
         // Update is called once per frame
         void Update()
         {
+            Animator.SetFloat("Idle Walk Run", _movementSpeed);
             if (transform.position == _newPos)
                 GetNewPos();
             else
