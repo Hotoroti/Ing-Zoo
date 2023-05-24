@@ -63,11 +63,13 @@ namespace Zoo3D
             //Calculate movement direction
             _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
 
+            //Moves the player int the direction with the speed
             _rig.AddForce(_moveDirection * _movementSpeed, ForceMode.Force);
         }
 
         private void SpeedControl()
         {
+            //The velocity the rigidbody has at the moment
             Vector3 flatVel = new Vector3(_rig.velocity.x, 0, _rig.velocity.z);
 
             //Limit velocity if needed
@@ -75,6 +77,7 @@ namespace Zoo3D
             {
                 //Calculate what max velocity should be
                 Vector3 limitedVel = flatVel.normalized * _movementSpeed;
+                //Sets the velocity to the limited velocity
                 _rig.velocity = new Vector3(limitedVel.x, _rig.velocity.y, limitedVel.z);
             }
 

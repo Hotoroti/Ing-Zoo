@@ -19,19 +19,20 @@ namespace Zoo3D
         }
         #endregion
 
-        [SerializeField] private EventSystem _eventSystem;
-        [SerializeField] private GameObject _setObject;
+        [SerializeField] private EventSystem _eventSystem; //A reference to the eventsystem
+        [SerializeField] private GameObject _setObject; //The object of menu it sets to if you click away
 
-        [SerializeField] private float _radius;
-        [SerializeField] private TMP_InputField _input;
+        [SerializeField] private float _radius; //The radius of the sphere
+        [SerializeField] private TMP_InputField _input; //The input field
 
-        private List<Animal> _animalScript = new List<Animal>();
+        private List<Animal> _animalScript = new List<Animal>(); //A list for all the animalscripts
 
         public float Radius { get => _radius; }
-        public List<GameObject> AllAnimals = new List<GameObject>();
+        public List<GameObject> AllAnimals = new List<GameObject>(); //A list for all the animals
 
         private void Update()
         {
+            //Sets the selected object to the setobject
             if (_eventSystem.currentSelectedGameObject == null)
                 _eventSystem.SetSelectedGameObject(_setObject);
         }
