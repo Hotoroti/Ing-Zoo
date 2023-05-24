@@ -77,11 +77,13 @@ namespace Zoo3D
 
         IEnumerator Trick()
         {
+            _randomMovement.MovementSpeed = 0;
             for (int i = 0; i < 360; i++)
             {
                 transform.localRotation = Quaternion.Euler(0, i, 0);
                 yield return new WaitForEndOfFrame();
             }
+            _randomMovement.MovementSpeed = _randomMovement.StartMovementSpeed;
         }
 
     }

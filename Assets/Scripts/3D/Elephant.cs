@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Zoo3D
 {
-    public class Giraffe : Animal
+    public class Elephant : Animal
     {
         [SerializeField] private TextMeshProUGUI _text;
 
