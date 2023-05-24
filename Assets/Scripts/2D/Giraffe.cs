@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Zoo
 {
-    class Lion : MonoBehaviour
+    class Giraffe : MonoBehaviour
     {
         [SerializeField]
         private GameObject _balloon;
@@ -15,13 +15,13 @@ namespace Zoo
         public void SayHello()
         {
             _balloon.SetActive(true);
-            _text.text = "roooaoaaaaar";
+            _text.text = "giraffe giraffe";
         }
 
-        public void EatMeat()
+        public void EatLeaves()
         {
             _balloon.SetActive(true);
-            _text.text = "nomnomnom thx mate";
+            _text.text = "delicious delicous, yum yum";
         }
     }
 }

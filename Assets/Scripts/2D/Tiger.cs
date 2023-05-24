@@ -6,23 +6,23 @@ namespace Zoo
 {
     class Tiger : MonoBehaviour
     {
-        public string name;
+        public string Name;
         [SerializeField]
-        private GameObject Balloon;
+        private GameObject _balloon;
         [SerializeField]
-        private Text text;
+        private Text _text;
 
 
         public void SayHello()
         {
-            Balloon.SetActive(true);
-            text.text = "rraaarww";
+            _balloon.SetActive(true);
+            _text.text = "rraaarww";
         }
 
         public void EatMeat()
         {
-            Balloon.SetActive(true);
-            text.text = "nomnomnom thx wubalubadubdub";
+            _balloon.SetActive(true);
+            _text.text = "nomnomnom thx wubalubadubdub";
         }
 
         public void PerformTrick()

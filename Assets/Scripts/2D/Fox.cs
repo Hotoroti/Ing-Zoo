@@ -4,30 +4,25 @@ using UnityEngine.UI;
 
 namespace Zoo
 {
-    class Pig : MonoBehaviour
+    class Fox : MonoBehaviour
     {
-        public string Name;
         [SerializeField]
         private GameObject _balloon;
         [SerializeField]
         private Text _text;
+        public string Name;
+
 
         public void SayHello()
         {
             _balloon.SetActive(true);
-            _text.text = "oink oink";
-        }
-
-        public void EatLeaves()
-        {
-            _balloon.SetActive(true);
-            _text.text = "munch munch oink";
+            _text.text = "What does the fox say";
         }
 
         public void EatMeat()
         {
             _balloon.SetActive(true);
-            _text.text = "nomnomnom oink thx";
+            _text.text = "Nom Nom Nom Nom Nom";
         }
 
         public void PerformTrick()

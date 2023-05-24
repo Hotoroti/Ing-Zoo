@@ -11,6 +11,8 @@ TagManager:
   - Tiger
   - Zebra
   - Elephant
+  - Giraffe
+  - Pig
   layers:
   - Default
   - TransparentFX

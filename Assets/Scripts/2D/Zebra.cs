@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Zoo
@@ -7,22 +6,22 @@ namespace Zoo
     class Zebra : MonoBehaviour
     {
         [SerializeField]
-        private GameObject Balloon;
+        private GameObject _balloon;
         [SerializeField]
-        private Text text;
-        public string name;
+        private Text _text;
+        public string Name;
 
 
         public void SayHello()
         {
-            Balloon.SetActive(true);
-            text.text = "zebra zebra";
+            _balloon.SetActive(true);
+            _text.text = "zebra zebra";
         }
 
         public void EatLeaves()
         {
-            Balloon.SetActive(true);
-            text.text = "munch munch zank yee bra";
+            _balloon.SetActive(true);
+            _text.text = "munch munch zank yee bra";
         }
     }
 }

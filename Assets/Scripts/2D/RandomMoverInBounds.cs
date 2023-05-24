@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Zoo
 {
     public class RandomMoverInBounds : MonoBehaviour
     {
         [SerializeField]
-        private int left, right, top, bottum;
+        private int _left, _right, _top, _bottom;
         [SerializeField]
-        private float speed;
+        private float _speed;
 
-        private Vector3 goal;
+        private Vector3 _goal;
 
         private void Start()
         {
@@ -20,17 +18,17 @@ namespace Zoo
 
         private void Update()
         {
-            Vector3 direction = goal - transform.localPosition;
-            transform.Translate(direction.normalized * speed * Time.deltaTime);
+            Vector3 direction = _goal - transform.localPosition;
+            transform.Translate(direction.normalized * _speed * Time.deltaTime);
             if (direction.magnitude < 5)
                 PickGoal();
         }
 
         private void PickGoal()
         {
-            goal = new Vector2(
-                Random.Range(left, right),
-                Random.Range(bottum, top));
+            _goal = new Vector2(
+                Random.Range(_left, _right),
+                Random.Range(_bottom, _top));
         }
     }
 }

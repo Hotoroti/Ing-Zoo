@@ -3,25 +3,31 @@ using UnityEngine.UI;
 
 namespace Zoo
 {
-    class Hippo:MonoBehaviour
+    class Hippo : MonoBehaviour
     {
-        public string name;
+        public string Name;
         [SerializeField]
-        private GameObject Balloon;
+        private GameObject _balloon;
         [SerializeField]
-        private Text text;
+        private Text _text;
 
         public void SayHello()
         {
-            Balloon.SetActive(true);
-            text.text = "splash";
+            _balloon.SetActive(true);
+            _text.text = "splash";
         }
 
         public void EatLeaves()
         {
-            Balloon.SetActive(true);
-            text.text = "munch munch lovely";
+            _balloon.SetActive(true);
+            _text.text = "munch munch lovely";
+        }
+
+        public void EatMeat()
+        {
+            _balloon.SetActive(true);
+            _text.text = "munch munch lovely meat";
         }
     }
-    
+
 }
